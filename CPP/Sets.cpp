@@ -41,4 +41,14 @@ set<int> first;
   }
   };
   
-//5 Insertion and Deletion
+
+//5 Iterating through elements of a set.
+for (set<char>::iterator i = mySet.begin(); i != mySet.end(); i++) {//we declare iterator to a set element like this only set<char>::iterator
+   char element = *i;
+   cout<<element;
+}
+
+//6 
+
+
+// Insertion and Deletion
