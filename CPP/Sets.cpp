@@ -1,6 +1,6 @@
 /*
 
-1. In a set, key = value and each value must be unique.
+1. In a set, key = value and each value must be unique. (**i.e even if you put add same elements, the final result don't have any dupliactes and will be sorted :) )
 2. The value of the elements in a set cannot be modified once in the container (the elements are always const),
    but they can be inserted or removed from the container.
 3. By default, all elements are ordered lexicographically. (We can override the default behavior though! ;) )
