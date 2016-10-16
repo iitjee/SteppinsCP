@@ -24,7 +24,7 @@ set<int> first;
 //3  Copy constructor
   set<int> third (second); 
 
-Note: actually we've to write std::set. It's assumed we've declared 'using namespace std;'
+//Note: actually we've to write std::set. It's assumed we've declared 'using namespace std;'
 
 
 //4 Overriding DEFAULT CONSTRUCTOR. eg: Here we are overriding the default comparator with that which sorts by the length rather than alphabet
