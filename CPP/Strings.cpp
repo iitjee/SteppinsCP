@@ -5,7 +5,7 @@
 */
 
 string s;
-s.length(); //to get length of string. strlen works only for c-style strings
+s.length(); /*or*/ s.size(); //to get length of string. strlen works only for c-style strings
 
 
 
