@@ -6,6 +6,8 @@
 3. By default, all elements are ordered lexicographically. (We can override the default behavior though! ;) )
 4. Internally uses BST
 
+
+PROBLEMS: https://www.codechef.com/problems/STONES/ https://discuss.codechef.com/questions/3616/stones-editorial
 */
 
 
@@ -48,7 +50,10 @@ for (set<char>::iterator i = mySet.begin(); i != mySet.end(); i++) {//we declare
    cout<<element;
 }
 
-//6 
+//6 Searching for an element in a set
+mySet.count(valueYouAreSearchingFor); 
+//this returns the count of values in the set matching with your value. But since all elements are unique, 
+// the result will be either 1 or 0! ;)
 
 
 // Insertion and Deletion
