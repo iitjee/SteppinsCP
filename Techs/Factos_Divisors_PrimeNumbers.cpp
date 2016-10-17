@@ -35,12 +35,11 @@ const int maxSQ = 10000;
  for(i=(int)sqrt(n); i>1; i--)
         {
             if(n%i==0)//i is a factor
-            {
-                ans = n/i - i;//ans is +ve always
+            { ans = n/i - i;//ans is +ve always
                 break;
-            }
+	    }
         }
-//Alternative solution
+//Alternative solution (This approach is ONLY asymptotically better than the previous approach.)
 /* This approach uses the Sieve of Eratosthenes algorithm for finding prime numbers. Using this, we find all the primes till sqrt(N) once and store them in an array. 
 Now, for every given N, we find all its prime factors and store them in an array. This can be done by looping over the prime numbers that we generated earlier and checking if each of it is a factor of N. We check for only those numbers which are not greater than sqrt(N). If any of those prime numbers is a factor, we calculate the degree of that factor. By degree of a factor we mean the number of times the factor divides the number. For example, 24 = 23.31. Here 2 (the prime factor) has a degree of 3 and 3(the next prime factor) has a degree of 1.
 
@@ -48,7 +47,7 @@ Next we try to generate all the divisors of N using the above information that w
 
 So we finally have the array of the entire divisors. Note that we do not have these divisors in the sorted order. So we will have to check for every divisor d, and check for the minimum difference of |d – N/d|.
 
-This approach is asymptotically better than the previous approach. Let's look at the complexity of this solution. Generating the primes using the sieve has O(sqrt(N) * log log N) complexity. And on an average, getting all the prime factors and generating the divisors of a number will take O(sqrt(N)/log(N)) time. So the overall complexity is O(sqrt(N) * log log N + T * sqrt(N) / log(N)) .
+Let's look at the complexity of this solution. Generating the primes using the sieve has O(sqrt(N) * log log N) complexity. And on an average, getting all the prime factors and generating the divisors of a number will take O(sqrt(N)/log(N)) time. So the overall complexity is O(sqrt(N) * log log N + T * sqrt(N) / log(N)) .
 
 https://gist.github.com/iitjee/1c018afc5b6c59e647ea3c460457b749
 */
