@@ -37,5 +37,6 @@ Next we try to generate all the divisors of N using the above information that w
 So we finally have the array of the entire divisors. Note that we do not have these divisors in the sorted order. So we will have to check for every divisor d, and check for the minimum difference of |d – N/d|.
 
 This approach is asymptotically better than the previous approach. Let's look at the complexity of this solution. Generating the primes using the sieve has O(sqrt(N) * log log N) complexity. And on an average, getting all the prime factors and generating the divisors of a number will take O(sqrt(N)/log(N)) time. So the overall complexity is O(sqrt(N) * log log N + T * sqrt(N) / log(N)) .
-*/
+
 https://gist.github.com/iitjee/1c018afc5b6c59e647ea3c460457b749
+*/
