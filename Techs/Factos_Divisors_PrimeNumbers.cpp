@@ -16,6 +16,19 @@ cout<<n/i<<" is a factor of n";
 }
 
 
+/* Calculating Prime Numbers less than 10000 (Sieve of Erasthosenese) */
+const int maxSQ = 10000;
+	vector<bool> is_prime(maxSQ, true); //is_prime is the "sieve"
+	vector<int> primes; //primes is the result nectar..yummy!
+	for (int p = 2; p < maxSQ; ++p) {
+		if (is_prime[p]) {
+			primes.push_back(p);
+			for (int q = p + p; q < maxSQ; q += p) { // if q=3, 3+3, 3+3+3, 3+3+3+3.. will be sieved out
+				is_prime[q] = false;
+			}
+		}
+	}
+
 /* Problem 1: find factors p,q of n such that pq = n and |p-q| is minimized.(https://discuss.codechef.com/questions/1123/resq-editorial) */ 
 //We need to brute force through all the factors but note that |p-q| attains minima near p~q~sqrt(n)
 //So instead of upcounting, start downcounting from sqrt(n) so it breaks outta loop faster ;)
