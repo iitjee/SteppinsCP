@@ -2,6 +2,7 @@
 //Initialization of Vectors
 
   std::vector<int> first;                                // empty vector of ints
+  std::vector<int> vi1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
   std::vector<int> second (4,100);                       // four ints with value 100
   std::vector<int> third (second.begin(),second.end());  // iterating through second
   std::vector<int> fourth (third);                       // a copy of third
