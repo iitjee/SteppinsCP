@@ -1,4 +1,22 @@
-// vector.cpp by Bill Weinman <http://bw.org/>
+/*
+//Initialization of Vectors
+
+  std::vector<int> first;                                // empty vector of ints
+  std::vector<int> second (4,100);                       // four ints with value 100
+  std::vector<int> third (second.begin(),second.end());  // iterating through second
+  std::vector<int> fourth (third);                       // a copy of third
+
+  // the iterator constructor can also be used to construct from arrays:
+  int myints[] = {16,2,77,29};
+  std::vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
+
+
+
+
+*/
+
+
+/* DEMO */
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -11,13 +29,13 @@ int main( int argc, char ** argv ) {
     cout << "front: " << vi1.front() << endl;
     cout << "back: " << vi1.back() << endl;
     
-    // iterator
-    vector<int>::iterator itbegin = vi1.begin();
+    // iterator and iterating through vector
+    vector<int>::iterator itbegin = vi1.begin(); /*(or)*/ auto itbegin = vi1.begin();
     vector<int>::iterator itend = vi1.end();
     for (auto it = itbegin; it < itend; ++it) {
         cout << *it << ' ';
     }
-    cout << endl;
+
     
     cout << "element at 5: " << vi1[5] << endl;
     cout << "element at 5: " << vi1.at(5) << endl;
@@ -26,7 +44,7 @@ int main( int argc, char ** argv ) {
     for (int & i : vi1) {
         cout << i << ' ';
     }
-    cout << endl;
+
     
     cout << "insert 42 at begin + 5: " << endl;
     vi1.insert(vi1.begin() + 5, 42);
@@ -49,11 +67,10 @@ int main( int argc, char ** argv ) {
     }
     cout << endl << endl;
     
-    // from C-array
-    const static size_t size = 10;
-    int ia[size] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    // from C-array - Old Style of making vectors
+    int ia[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     cout << "vector from C-array: " << endl;
-    vector<int> vi2(ia, ia + size);
+    vector<int> vi2(ia, ia + + sizeof(ia)/sizeof(int) ));
     for( int & i : vi2 ) {
         cout << i << ' ';
     }
@@ -68,3 +85,5 @@ int main( int argc, char ** argv ) {
     
     return 0;
 }
+
+
