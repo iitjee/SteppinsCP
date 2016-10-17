@@ -31,13 +31,12 @@ const int maxSQ = 10000;
 
 /* Problem 1: find factors p,q of n such that pq = n and |p-q| is minimized.(https://discuss.codechef.com/questions/1123/resq-editorial) */ 
 //We need to brute force through all the factors but note that |p-q| attains minima near p~q~sqrt(n)
-//So instead of upcounting, start downcounting from sqrt(n) so it breaks outta loop faster ;)
+//So instead of upcounting, start downcounting from sqrt(n) so it breaks outta loop very quickly on encountering the first factor ;)
  for(i=(int)sqrt(n); i>1; i--)
         {
             if(n%i==0)//i is a factor
             {
-                otherDiv = n/i;//otherDiv >= sqrt(n) >= i
-                ans = otherDiv - i;//so ans is +ve always
+                ans = n/i - i;//ans is +ve always
                 break;
             }
         }
