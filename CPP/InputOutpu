@@ -1,0 +1,19 @@
+/*
+
+
+
+
+*/
+
+
+/*  ios_base::sync_with_stdio(0) */
+Now cin will be as fast as scanf.
+You can't use printf/scanf once you write ios_base::sync_with_stdio(0)
+ios_base::sync_with_stdio(0) will de-synchronize cin from scanf and cout from printf. 
+This is fine and will result in a speedup if you just use cin and cout, but if you mix that with stdio-style IO, 
+then weird things happen.
+
+/* cin.tie(0) */
+by default, cout is flushed before each input operation on cin:
+cin.tie(0) turns this off by instead "tying" cin to nothing.
+Presumably this is done for performance reasons. It would make a significant difference in programs that interweave numerous cin/cout calls, such as those that answer a large number of queries from the input in an online manner.
