@@ -1,0 +1,33 @@
+?sort_by=Time&sorting_order=asc&language=1&status=15&handle=&Submit=GO
+
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+#define  MAXT *
+#define MAXN * 
+
+
+inline void solve() 
+{
+
+}
+
+int main()
+{
+ios_base::sync_with_stdio(0);
+cin.tie(0);
+
+int T; cin>>T;
+assert(1<=T && T<= MAXT);
+while(T--)
+ {
+int n; cin>>n;
+assert(1<= n && n<= MAXN);
+
+
+
+}
+return 0;
+}
