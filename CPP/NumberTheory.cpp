@@ -12,4 +12,6 @@ Properties:
 2. If m is a non-negative integer, then gcd(m·a, m·b) = m·gcd(a, b)
 3. If m is any integer, then gcd(a + m·b, b) = gcd(a, b)
 4. gcd(a, b) = gcd(b, a)
+5. gcd(a, gcd(b, c)) = gcd(gcd(a, b), c) //IMP
+6. If a is a non-zero integer, then gcd(a,0)=a
 
