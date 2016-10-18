@@ -7,7 +7,7 @@ using namespace std;
 
 #define  MAXT *
 #define MAXN * 
-
+#define RANGECHECK(x,a,b) assert(a<=x && b>=x)
 
 inline void solve() 
 {
@@ -20,11 +20,11 @@ ios_base::sync_with_stdio(0);
 cin.tie(0);
 
 int T; cin>>T;
-assert(1<=T && T<= MAXT);
+RANGECHECK(T, 1, MAXT);
 while(T--)
  {
 int n; cin>>n;
-assert(1<= n && n<= MAXN);
+RANGECHECK(n, 1, MAXN);
 
 
 
