@@ -1,0 +1,15 @@
+/*
+
+
+
+*/
+
+
+//Left-Rotate an array(n) by d-digits
+reverse(vect.begin(), vect.begin()+d);
+reverse(vect.begin()+d, vect.end());
+reverse(vect.begin(), vect.end());
+
+/* cool right! :) */
+
+For dynamic arrays, best use vectors! :/
