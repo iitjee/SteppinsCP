@@ -1,4 +1,5 @@
 ?sort_by=Time&sorting_order=asc&language=1&status=15&handle=&Submit=GO
+//long = 2*10^8 int ~ 3*10^4
 
 #include <iostream>
 #include <cassert>
@@ -19,11 +20,11 @@ int main()
 ios_base::sync_with_stdio(0);
 cin.tie(0);
 
-int T; cin>>T;
+unsigned int T; cin>>T;
 RANGECHECK(T, 1, MAXT);
 while(T--)
  {
-int n; cin>>n;
+unsigned long long n; cin>>n;
 RANGECHECK(n, 1, MAXN);
 
 
