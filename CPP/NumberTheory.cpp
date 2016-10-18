@@ -15,3 +15,5 @@ Properties:
 5. gcd(a, gcd(b, c)) = gcd(gcd(a, b), c) //IMP
 6. If a is a non-zero integer, then gcd(a,0)=a
 
+Problems:
+https://www.codechef.com/problems/AMSGAME1
