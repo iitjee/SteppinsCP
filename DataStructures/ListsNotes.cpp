@@ -9,12 +9,13 @@ Array: Sequential and Direct(aka RANDOM) Access (Contiguous memory locations)
 List: Sequential Access (Need not be contiguous)
 
 Lists have NODES. and each node as two elements i.e (DATA, NEXT)
-The Last node has a Sentinel Pointer (a DUMMY ptr).
+The Last node has a Sentinel Pointer (a DUMMY ptr) which points to NULL.
 You see, we don't have direct access. We need to go through all the elements starting from first. This is the downside of list.
 Also Arrays are on the winning side for searching/sorting as well.
 
 However, the BIGGEST ADVANTAGE is ADDING/REMOVING ELEMENTS. However, in Arrays doing this task is daunting as it needs
-to comply it's basic definition: 'elements should be contiguous in Array'.
+to comply it's basic definition: 'elements should be contiguous in Array'. (There's a catch: To search the element in a list,
+it may be time consuming).
 Thus, Lists are the BEST for VOLATILE Data. :)
 
 ----------------------------------------------------------------------------------------------------------------
