@@ -23,6 +23,9 @@ set<int> first;
 //2(2) Range based
   set<int> fourth (second.begin(), second.end()); //begin() and end() are iterators pointing to first and last elems
   
+   string s = "Hello World";
+   set<char> S(s.begin(),s.end());
+
 //3  Copy constructor
   set<int> third (second); 
 
