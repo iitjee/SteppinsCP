@@ -37,7 +37,9 @@ int main( int argc, char ** argv ) {
         cout << *it << ' ';
     }
 
-    
+  //Note: begin() returns an iterator that can be used to iterate through the collection, 
+  //while front() just returns a reference to the first element of the collection  
+  
     cout << "element at 5: " << vi1[5] << endl;
     cout << "element at 5: " << vi1.at(5) << endl;
     
