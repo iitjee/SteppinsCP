@@ -1,4 +1,6 @@
-/* SPOJ http://www.spoj.com/problems/SHPATH/  */
+/* SPOJ http://www.spoj.com/problems/SHPATH/  
+    https://github.com/cacophonix/SPOJ/blob/master/SHPATH.cpp
+    */
 #include <iostream>
 #include <cassert>
 
