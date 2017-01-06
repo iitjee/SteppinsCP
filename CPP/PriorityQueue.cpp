@@ -21,14 +21,17 @@ https://github.com/cacophonix/SPOJ/blob/master/SHPATH.cpp
  priority_queue<int> second (myints,myints+4); //contains the four ints defined for myints, with 60 (the highest) at its top.
  priority_queue<int, vector<int>, greater<int> > third (myints,myints+4); //Third has the same four ints, but because it uses greater instead of the default (which is less), it has 10 as its top element.
 //'greater' is an operator
-
+/* other eg for 3rd constructor:
+  #define pii pair<int,int>
+  priority_queue< pii, vector< pii >, greater< pii > > Q;
+ */
   pq1.push(30);  // inserts 30 to pq1 , now top = 30
   pq1.push(40);  // inserts 40 to pq1 , now top = 40 ( maxinmum element)
   pq1.push(90);  // inserts 90 to pq1 , now top = 90  
   pq1.push(60);	// inserts 60 to pq1 , top still is 90	
   
   pq1.pop();  // removes 90 (greatest element in the queue)
-  pq1.top();
+  pq1.top();  //returns the top element. say, if elements are of type pair<int, int> you can do pq1.top().first and pq1.top().second
   pq1.empty();
   pq1.size();
   
