@@ -1,0 +1,112 @@
+/*
+  https://www.topcoder.com/community/data-science/data-science-tutorials/introduction-to-graphs-and-their-data-structures-section-1/
+
+  Usually appearing as the hard problem in Division 2, or the medium or hard problem in Division 1
+  . Knowing the correct data structures to use with graph problems is critical. 
+  
+  
+  
+  The first key to solving a graph related problem is recognizing that it is a graph problem. This can be more difficult than it sounds, because the problem writers don’t usually spell it out for you. 
+  Some common keywords associated with graph problems are: vertices, nodes, edges, connections, connectivity, paths, cycles and direction.
+  
+  For those that are used to the mathematical description of graphs, a graph G = {V, E} is defined as a set of vertices, V, and a collection of edges (which is not necessarily a set), E.
+  An edge can then be defined as (u, v) where u and v are elements of V. 
+  
+  /** Representing graph in memory **/
+  eg: Best one is a singly linked list
+  structure node  
+   [node] link;
+   [data]
+  end
+
+  //Notice that node is a recursive structure definition
+  node head;
+  node B, C;
+  head.next = B;
+  B.next = C;
+  C.next = null;
+  This would be represented graphically as head -> B -> C -> null. 
+  Cost function for above would look like this:
+  cost(X, Y) := if (X.link = Y) return 1;
+           else if (X = Y) return 0;
+           else "Not possible"
+           
+  Get used to seeing cost functions because anytime that you encounter a graph problem you will be dealing with them in some form or another! 
+  
+  eg: Another good one is Trees.
+  There will be a whole section written on trees.
+  If you wanted to start a family tree (a hierarchal organization of children to parents, starting from one child) you would not be able to store more than one parent per child.
+  So we obviously need a new type of data structure. 
+  structure node
+   [node] mother, father;
+   [string] name
+  end
+
+  node originalChild;
+  cost(X, Y) := if ((X.mother = Y) or (X.father = Y)) return 1;
+           else if (X = Y) return 0;
+           else "Not possible"
+           
+  Array representation
+  Representing a graph as a list of nodes is a very flexible method. But usually on topcoder we have limits on the problems that attempt to make life easier for us. Normally our graphs are relatively small, with a small number of nodes and edges. 
+  When this is the case we can use Array data structure that is easier to work with.
+  eg: A  B  C
+  P   0  1  5
+  Q  -1  0  1
+  R  -1 -1  0
+  
+*/
+
+/** Searching Graphs
+Depth First Search and the Breadth First Search are two basic methods which will form the foundations for more advanced algorithms later on.
+We will begin with the depth first search method, which will utilize a stack.
+
+depth first search:
+This stack can either by represented explicitly (by a stack data-type in our language) or implicitly when using recursive functions.
+Four main operations on a stack: push(), pop(), top(), empty()
+#include <stack>
+stack<int> myStack;
+
+import java.util.*;       //Java
+Stack stack = new Stack();
+
+using System.Collections; //C#
+Stack stack = new Stack();
+
+This method is well geared towards problems where we want to find any solution to the problem (not necessarily the shortest path), or to visit all of the nodes in the graph.
+eg; flood-fill operation (to fill a bounded region with a single color, without leaking outside the boundaries)
+
+IDEA: The basic concept is to visit a node, then push all of the nodes to be visited onto the stack. 
+To find the next node to visit we simply pop a node of the stack, and then push all the nodes connected to that one onto the stack as well and we continue doing this until all nodes are visited. 
+It is a key property of the Depth First search that we not visit the same node more than once, otherwise it is quite possible that we will recurse infinitely. 
+We do this by marking the node as we visit it.
+
+/*  Explicit way  */
+dfs(node start) {
+ stack<node> s;
+ s.push(start);
+ while (s.empty() == false) {
+  top = s.top();
+  s.pop();
+
+  if (top is not marked as visited) {
+   check for termination condition (have we reached the node we want to?)
+
+   mark top as visited;
+   add all of top's neighbors to the stack.
+  }
+ }
+}
+
+/* (Implicit way) Alternatively we can define the function recursively as follows:  */
+
+dfs(node current) {
+ mark current as visited;
+ visit all of current's unvisited neighbors by calling dfs(neighbor)
+}
+
+
+
+*/
+
+
