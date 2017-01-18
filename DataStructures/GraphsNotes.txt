@@ -62,7 +62,9 @@ Depth First Search and the Breadth First Search are two basic methods which will
 We will begin with the depth first search method, which will utilize a stack.
 
 depth first search:
-This stack can either by represented explicitly (by a stack data-type in our language) or implicitly when using recursive functions.
+This stack can either by represented explicitly (by a stack data-type in our language) or implicitly when using recursive functions. Apps are "Topologically sorting a directed acycleic graph" and "Decomposing a Directed Graph into its
+strongly connected components".
+
 Four main operations on a stack: push(), pop(), top(), empty()
 #include <stack>
 stack<int> myStack;
@@ -105,7 +107,7 @@ dfs(node current) {
  visit all of current's unvisited neighbors by calling dfs(neighbor)
 }
 
-
+BEST TUT FOR DFS: https://www.youtube.com/watch?v=iaBEKo5sM7w
 
 */
 
