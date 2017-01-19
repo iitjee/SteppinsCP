@@ -8,9 +8,11 @@ Depending on your language you may be familiar with the term heap as an area of 
 A collection of parent child nodes with a…maximum of two children under any one parent.
 …But there's a different, simple rule that we use to give…a heap a totally different internal structure to a binary search tree.
 …So the basics, heaps are a collection of objects.
-***As we add items to this heap, they are always add top to bottom, left to right.*** (better see lyn video)
+***As we add items to this heap, they are always add top to bottom, left to right.*** (better watch lyn video)
 …We completely fill out any level before moving on to the next.
 …So we don't have to worry about the…tree becoming unbalanced like a binary search tree can.…
+
+Every parent node has a value less than or equal to any of its chidren.
 
 Min Heap vs Max Heap:
 
@@ -57,3 +59,22 @@ int main () {
 
   return 0;
 }
+
+/** Language support:
+  *Java - Priority Queue
+  *C#   - N/A
+  *Python-heapq
+  *Ruby - N/A
+  *ObjC - CFBinaryHeap
+  *C++  - priority_queue 
+
+
+
+
+
+*/
+
+
+
+
+
