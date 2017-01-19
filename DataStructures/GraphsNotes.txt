@@ -111,4 +111,12 @@ BEST TUT FOR DFS: https://www.youtube.com/watch?v=iaBEKo5sM7w
 
 */
 
+Breadth First Search:
+An extremely useful SEARCHING technique. It differs from the depth-first search in that it uses a queue to perform the search, so the order in which the nodes are visited is quite different
+
+
+
+
+
+
 
