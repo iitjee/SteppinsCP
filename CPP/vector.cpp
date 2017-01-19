@@ -4,12 +4,15 @@
   std::vector<int> first;                                // empty vector of ints
   std::vector<int> vi1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
   std::vector<int> second (4,100);                       // four ints with value 100
-  std::vector<int> third (second.begin(),second.end());  // iterating through second
-  std::vector<int> fourth (third);                       // a copy of third
-
+  
+  std::vector<int> third (second.begin(),second.end());  // iterating through second vector
+  
   // the iterator constructor can also be used to construct from arrays:
   int myints[] = {16,2,77,29};
   std::vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
+
+  std::vector<int> fourth (third);                       // a copy of third
+
 
 
 
@@ -60,7 +63,7 @@ int main( int argc, char ** argv ) {
     cout << "vi1[5]: " << vi1[5] << endl;
     
     cout << "push_back 47: " << endl;
-    vi1.push_back(47);
+    vi1.push_back(47);  //pop_back() is opposite
     cout << "size: " << vi1.size() << endl;
     cout << "vi1.back() " << vi1.back() << endl;
     
