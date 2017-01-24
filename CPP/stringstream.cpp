@@ -1,6 +1,21 @@
 
+/* Look @last for istringstream and ostrinstream variants
+
+stringstream is a stream class to operate on strings.
+
 Objects of this class use a string buffer that contains a sequence of characters. 
-This sequence of characters can be accessed directly as a string object, using member str
+This sequence of characters can be accessed directly as a string object, using member str 
+
+One common use of this class is to parse comma-separated(aka CSV files) integers from a string
+
+
+*/
+
+#include <sstream>
+stringstream ss("23,4,56"); //(or) stringstream ss; ss.str("23,4,56");
+char ch;
+int a, b, c;
+ss >> a >> ch >> b >> ch >> c;  // a = 23, b = 4, c = 56
 
 
 #include <sstream>
@@ -14,8 +29,18 @@ ss >> myChar;
 ss >> myCstring; 
 ss >> myInt; //This is also an easy way to convert strings of digits into ints, floats or doubles
 
-string s = ss.str(); //You can get the entire contents of the stringstream as a single C++ string:
+string s = ss.str(); //similar to cin>> .You can get the entire contents of the stringstream as a single C++ string:
 
+  ss.str ("Example string");
+  string s = ss.str();
+  cout << s << '\n';
+
+//note that str() has two forms:
+//ss.str() with no arguments => cin (getting)
+//ss.str("someContent") => setting
+
+
+//
 
 
 /*  Converting string of digits into individual ints  */
@@ -92,5 +117,20 @@ int main() {
 /* The above code was set up explicitly to load data into a 6x5 array because that's what a particular application required, but it can be easily modified to read an entire input file of indeterminate length using a while loop, i.e.
 while( infile.getline( buff, 50 ) ) , containing lines with any number of comma-separated values (as long as a big enough buffer is provided). 
 (for that more generalized code, see @below http://www.dreamincode.net/forums/topic/95826-stringstream-tutorial/
+*/
+
+
+/* istringstream and ostringstream
+Personally I find it very rare that I want to preform streaming into and out of the same string stream. (the case of stringstream)
+Usually I want to either initialize a stream from a string and then parse it; or stream things too a string stream and
+then extract the result and store it.
+
+If you're streaming to and from the same stream you have to be very careful with the stream state and stream positions.
+
+Using 'just' istringstream or ostringstream better expresses your intent and gives you some checking against silly mistakes
+such as accidental use of << vs >>.
+
+There might be some performance improvement but I wouldn't be looking at that first.
+
 */
 
