@@ -1,5 +1,6 @@
 
 /* Look @last for istringstream and ostrinstream variants
+(they work exactly same as stringstream except they do their particular job of either inputting or outputting)
 
 stringstream is a stream class to operate on strings.
 
