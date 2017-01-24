@@ -10,6 +10,9 @@
  int lengthOfmyInts = sizeof(myints) / sizeof(int);
 //For these kind of purposes, we always use vector.
 
+//postfix operator
+int x = 1;
+int y = myints[x++];	//note that value of y is myints[1] and then x is incremented to 2.
 
 /* Multi-Dimensional Arrays */
 int myarray[3][5]; // a 3-element array of 5-element arrays
@@ -66,6 +69,23 @@ int main()
  
     return 0;
 }
+
+/* Row major and Column major	*/
+   A11  A12  A13
+   A21  A22  A23
+   A31  A32  A33
+
+Row major: elements of an array are filled up row-by-row such that the first row elements are stored first, then the second row and so on.
+	=> A11  A12  A13 A21  A22  A23  A31  A32  A33
+eg: Most of the high level programming languages like C/C++, Java, Pascal, NumPy etc use this method for storing multidimensional arrays.
+	OFFSET = rowIndex*(noOfColums)+colIndex
+	
+Column major: elements of the first column are stored first, then the next column elements and so on
+	=> A11 A21 A31 A12 A22 A32 A13 A23 A33
+eg: used in Fortran, OpenGL and OpenGL ES, MATLAB, GNU Octave, S-Plus, R, Julia, Rasdaman, Scilab.
+	OFFSET = colIndex*(noOfRows)+rowIndex
+	
+
 
 /*	There are three ways to pass a 2D array to a function:	*/
 
