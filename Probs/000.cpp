@@ -2,7 +2,7 @@
 Graph Theory:
 
 GrafixMask: See sol, 
-( - The sol is based on DFS.
+( - The sol is based on BFS. (this can be clearly seem by observing 'head' => 'q[head]'
   - uses head&tail as another way of looking at stack
   - q[tail++]=y*1000+x it seems like some row-major order but 1000 is taken just so that it's >400, 600 and it can be parsed into x and y later. Fancy way of storing
   - 
