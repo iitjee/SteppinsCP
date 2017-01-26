@@ -8,7 +8,7 @@ Stacks are a type of 'container adaptor', specifically designed to operate in a 
 
 stack.empty()
 stack.size()  //number of elements
-stack.top()   //Returns a reference to the top element in the stack. You can also 'modify' top element
+stack.top()  (or stack.peek() ) //Returns a reference to the top element in the stack. You can also 'modify' top element
 stack.push(elem)
 stack.pop() //Removes the element on top of the stack, effectively reducing its size by one.
 
