@@ -151,6 +151,8 @@ float volume;
 double price;
 };
 inflatable * ps = new inflatable; //This assigns to ps the address of a chunk of free memory large enough to hold a structure of the inflatable type
+//(In C it would be)
+struct inflatable *ps = (struct inflatable *)malloc(sizeof(struct inflatable));
 
 /* The tricky part is accessing members. When you create a dynamic structure, you can’t use the
 dot membership operator with the structure name because the structure has no name. All you
