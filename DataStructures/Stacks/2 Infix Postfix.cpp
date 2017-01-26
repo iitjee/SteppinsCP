@@ -26,6 +26,26 @@ in postfix form it is: abc*d++ This can be evaluated easily using a stack.
 6. Repeat steps 2-6 until infix expression is scanned.
 7. Pop and output from the stack until it is not empty
 */
+       
+// A utility function to return precedence of a given operator
+// Higher returned value means higher precedence
+int Prec(char ch)
+{
+    switch (ch)
+    {
+    case '+':
+    case '-':
+        return 1;
+ 
+    case '*':
+    case '/':
+        return 2;
+ 
+    case '^':
+        return 3;
+    }
+    return -1;
+}
 
 int infixToPostfix(char* exp)
 {
