@@ -94,7 +94,60 @@ int infixToPostfix(char* exp)
     printf( "%s\n", exp );
 }
 
+/*     Evaluation of Postfix Expression
+1) Create a stack to store operands (or values).
+2) Scan the given expression and do following for every scanned element.
+…..a) If the element is a number, push it into the stack
+…..b) If the element is a operator, pop operands for the operator from stack. Evaluate and push the result back to the stack
+3) When the expression is ended, the number in the stack is the final answer
 
+Example:
+Let the given expression be “2 3 1 * + 9 -“. We scan all elements one by one.
+1) Scan ‘2’, it’s a number, so push it to stack. Stack contains ‘2’
+2) Scan ‘3’, again a number, push it to stack, stack now contains ‘2 3′ (from bottom to top)
+3) Scan ‘1’, again a number, push it to stack, stack now contains ‘2 3 1′
+4) Scan ‘*’, it’s an operator, pop two operands from stack, apply the * operator on operands, we get 3*1 which results in 3. We push the result ‘3’ to stack. Stack now becomes ‘2 3′.
+5) Scan ‘+’, it’s an operator, pop two operands from stack, apply the + operator on operands, we get 3 + 2 which results in 5. We push the result ‘5’ to stack. Stack now becomes ‘5’.
+6) Scan ‘9’, it’s a number, we push it to the stack. Stack now becomes ‘5 9′.
+7) Scan ‘-‘, it’s an operator, pop two operands from stack, apply the – operator on operands, we get 5 – 9 which results in -4. We push the result ‘-4′ to stack. Stack now becomes ‘-4′.
+8) There are no more elements to scan, we return the top element from stack (which is the only element left in stack).
 
+*/
+
+// The main function that returns value of a given postfix expression
+int evaluatePostfix(char* exp)     //exp = expression
+{
+    // Create a stack of capacity equal to expression size
+    struct Stack* stack = createStack(strlen(exp));
+ 
+    // See if stack was created successfully
+    if (!stack) return -1;
+ 
+    // Scan all characters one by one
+    int i;
+    for (i = 0; exp[i]; ++i)
+    {
+        // If the scanned character is an operand (number here),
+        // push it to the stack.
+        if (isdigit(exp[i]))
+            push(stack, exp[i] - '0');
+ 
+        //  If the scanned character is an operator, pop two
+        // elements from stack apply the operator
+        else
+        {
+            int val1 = pop(stack);
+            int val2 = pop(stack);
+            switch (exp[i])
+            {
+             case '+': push(stack, val2 + val1); break;
+             case '-': push(stack, val2 - val1); break;
+             case '*': push(stack, val2 * val1); break;
+             case '/': push(stack, val2/val1);   break;
+            }
+        }
+    }
+    return pop(stack);
+}
 
 
