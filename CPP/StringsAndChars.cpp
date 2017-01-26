@@ -52,3 +52,36 @@ cout << mystring;          // printed as a library string
 cout << mystring.c_str();  // printed as a c-string 
 cout << mystring.data();   //same as c_str()
 
+/*Convert char to int in C and C++ */
+char a = '4';
+int ia = a - '0';
+
+/*  read the value as an ascii code */
+char a = 'a';
+int ia = (int)a;  // note that the int cast is not necessary -- int ia = a would suffice
+
+/*  Check if character is a digit */
+#include <ctype.h>
+int main ()
+{
+  char str[]="1776ad";
+  int year;
+  if (isdigit(str[0]))
+  {
+    year = atoi (str);  //see below how atoi(str) works
+    printf ("The year that followed %d was %d.\n",year,year+1);
+  }
+}`
+
+/*  atoi(string)  */
+//Parses the C-string str interpreting its content as an integral number, which is returned as a value of type int.
+//The function first discards as many whitespace characters (as in isspace) as necessary until the first non-whitespace character is found. 
+//Then, starting from this character, takes an optional initial plus or minus sign followed by as many base-10 digits as possible, and interprets them as a numerical value.
+//The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.
+char buffer[256] = "73bc";
+i = atoi (buffer);
+printf ("The value entered is %d. Its double is %d.\n",i,i*2);  //73 and 146 ("bc" is ignored)
+
+
+
+
