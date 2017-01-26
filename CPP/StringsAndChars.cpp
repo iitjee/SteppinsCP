@@ -1,5 +1,7 @@
 /*
-  no need of importing <string>
+  Unless you have a specific, compelling reason to use C-style strings, use string (defined in the <string> header) instead. std::string is easier, safer, and more flexible.
+  
+  no need of importing <string> (what?)
 
 
 */
@@ -11,9 +13,13 @@ s.length(); /*or*/ s.size(); //to get length of string. strlen works only for c-
 
 
 
-
+//C Style String
 char myword[] = { 'H', 'e', 'l', 'l', 'o', '\0' };
 char myword[] = "Hello";  //string-literal style
+cout << myword << " has " << sizeof(myword) << " characters.\n"; //(5+1) counts null character also
+//If array size is given in declaration, sizeof() returns the size of the entire array regardless of what’s in it.
+cout << myword << " has " << strlen(myword) << " letters.\n"; //prints the number of characters before the null terminator
+
 
 //Expressions (once myword has already been declared as above), such as below are NOT Valie:
 myword = "Bye";   //NOT VALID
@@ -26,6 +32,12 @@ myword[0] = 'B';
 myword[1] = 'y';
 myword[2] = 'e';
 myword[3] = '\0';
+
+char animal[20] = “bear”; 
+cout << animal; //animal == animal[0] == address of first character.
+//when you pass address of first character to cout, The cout object assumes that the address of a char is the address of a string, so it prints the character 
+//at that address and then continues printing characters until it runs into the null character (\0)
+
 
   char question1[] = "What is your name? ";
   string question2 = "Where do you live? ";
@@ -51,6 +63,53 @@ string mystring = myntcs;  // convert c-string to string
 cout << mystring;          // printed as a library string
 cout << mystring.c_str();  // printed as a c-string 
 cout << mystring.data();   //same as c_str()
+
+
+/*  Pointers and Character Array  */
+
+const char * bird = “wren”;  // bird holds address of string
+cout << bird; //"wren"
+
+char animal[20] = “bear”; 
+char * ps; // uninitialized
+// cout << ps << “\n”; //may display garbage, may cause a crash
+// cin >> ps; Too horrible a blunder to try; ps doesn’t  point to allocated space
+ps = animal; // set ps to point to string
+cout << ps ; //ps == animal[0]== animal. same as cout<<animal;
+(int *) animal,  (int *) ps //both will have same address
+
+  //To get a copy of a string, you need to do more. First, you need to allocate memory to hold the string
+  ps = new char[strlen(animal) + 1]; // gets new storage. 1 is added to accomodate null character
+  strcpy(ps, animal); // copy string to new storage
+  (int *) animal,  (int *) ps //now both will have different addresses
+    
+/*  Note: why did we type cast into (int *) ?
+Normally, if you give cout a pointer, it prints an address. But if the pointer is type char *,
+cout displays the pointed-to string. If you want to see the address of the string, you have to
+type cast the pointer to another pointer type, such as (int *)
+
+Note: How to Copy
+The strcpy() function takes two arguments. The first is the destination address, and the second
+is the address of the string to be copied. It’s up to you to make certain that the destination
+really is allocated and has sufficient space to hold the copy. 
+
+Note that by using new and strcpy(), you get two separate copies of “fox”.
+Also note that something like this:
+      strcpy(food, “a picnic basket filled with many goodies”);
+can cause problems because the food array is smaller than the string. In this case, the function
+copies the rest of the string into the memory bytes immediately following the array, which can
+overwrite other memory the program is using. To avoid that problem, you should use
+strncpy() instead. It takes a third argument: the maximum number of characters to be
+copied. Be aware, however, that if this function runs out of space before it reaches the end of
+the string, it doesn’t add the null character. Thus, you should use the function like this:
+    strncpy(food, “a picnic basket filled with many goodies”, 19);
+    food[19] = ‘\0’;
+This copies up to 19 characters into the array and then sets the last element to the null character.
+If the string is shorter than 19 characters, strncpy() adds a null character earlier to mark
+the true end of the string
+*/
+
+
 
 /*Convert char to int in C and C++ */
 char a = '4';
