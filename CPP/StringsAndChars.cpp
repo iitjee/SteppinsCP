@@ -1,7 +1,8 @@
 /*
   Unless you have a specific, compelling reason to use C-style strings, use string (defined in the <string> header) instead. std::string is easier, safer, and more flexible.
   
-  no need of importing <string> (what?)
+  no need of importing <string> to use strings
+  to use functions like strcpy() etc. on c-style arrays, you need to import <cstring>
 
 
 */
@@ -88,7 +89,7 @@ Normally, if you give cout a pointer, it prints an address. But if the pointer i
 cout displays the pointed-to string. If you want to see the address of the string, you have to
 type cast the pointer to another pointer type, such as (int *)
 
-Note: How to Copy
+Note: How to Copy: Difference between strcpy() and strncpy()
 The strcpy() function takes two arguments. The first is the destination address, and the second
 is the address of the string to be copied. It’s up to you to make certain that the destination
 really is allocated and has sufficient space to hold the copy. 
