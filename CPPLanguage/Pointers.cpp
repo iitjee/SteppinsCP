@@ -12,6 +12,13 @@
 2. It can point to the location just immediately past the end of an object.
 3. It can be a null pointer, indicating that it is not bound to any object.
 4. It can be invalid; values other than the above three are invalid
+
+malloc() and free(): 'new' and 'delete'
+The true worth of pointers comes into play when you allocate unnamed memory during
+runtime to hold values. In this case, pointers become the only access to that memory. In C,
+you can allocate memory with the library function malloc(). You can still do so in C++, but
+C++ also has a better way: the 'new' operator.
+
 */ 
 
 //  NULL pointer (3 ways of declaring)
@@ -30,6 +37,8 @@ Advice: Initialize all Pointers!!
 Uninitialized pointers are a common source of run-time errors.
 As with any other uninitialized variable, what happens when we use an uninitialized pointer is undefined.
 Using an uninitialized pointer almost always results in a run-time crash. 
+
+It’s safe to apply delete to the null pointer (nothing happens).
 */
 
 
@@ -71,6 +80,13 @@ double bubble = 3.2;
 pn = &bubble; // assign address of bubble to pn
 pc = new char; // assign address of newly allocated char memory to pc
 pa = new double[30]; // assign address of array of 30 double to pa
+
+/*  Pointer Danger  */
+long * fellow; // create a pointer-to-long
+*fellow = 223323; // place a value in never-never land
+//  Sure, fellow is a pointer. But where does it point? The code failed to assign an address to
+// fellow. So where is the value 223323 placed? We can’t say. Because fellow wasn’t initialized,
+// it could have any value. 
   
   
 /*  Dynamic Binding and Static Binding for Arrays */
