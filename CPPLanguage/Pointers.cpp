@@ -72,23 +72,33 @@ sizeof(wages), sizeof(pw) //24, 4
 //This is one case in which C++ doesn’t interpret the array name as an address.
 
   
-/*  New Operator  */
-double * pn; // pn can point to a double value
-double * pa; // so can pa
-char * pc; // pc can point to a char value
-double bubble = 3.2;
-pn = &bubble; // assign address of bubble to pn
-pc = new char; // assign address of newly allocated char memory to pc
-pa = new double[30]; // assign address of array of 30 double to pa
+/*  New Operator (malloc() equivalen tin C */
+  double * pn; // pn can point to a double value
+  double * pa; // so can pa
+  char * pc; // pc can point to a char value
+  double bubble = 3.2;
+  pn = &bubble; // assign address of bubble to pn
+  pc = new char; // assign address of newly allocated char memory to pc
+  pa = new double[30]; // assign address of array of 30 double to pa
 
 /*  Pointer Danger  */
-long * fellow; // create a pointer-to-long
-*fellow = 223323; // place a value in never-never land
+  long * fellow; // create a pointer-to-long
+  *fellow = 223323; // place a value in never-never land
 //  Sure, fellow is a pointer. But where does it point? The code failed to assign an address to
 // fellow. So where is the value 223323 placed? We can’t say. Because fellow wasn’t initialized,
 // it could have any value. 
   
-  
+/*   Delete Operator (free() equivalent in C)  */
+  int * ps = new int; // ok
+  delete ps; // ok
+  delete ps; // not ok now
+  int jugs = 5; // ok
+  int * pi = &jugs; // ok
+  delete pi; // not allowed, memory not allocated by new
+
+//It’s safe to apply delete to the null pointer (nothing happens).
+
+
 /*  Dynamic Binding and Static Binding for Arrays */
 int tacos[10]; // static binding, size fixed at compile time
 int size;
