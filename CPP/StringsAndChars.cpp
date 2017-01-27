@@ -16,11 +16,12 @@ s.length(); /*or*/ s.size(); //to get length of string. strlen works only for c-
 
 //C Style String
 char myword[] = { 'H', 'e', 'l', 'l', 'o', '\0' };
-char myword[] = "Hello";  //string-literal style
+char myword[] = "Hello";  //string-literal style (\0 will be autom added)
 cout << myword << " has " << sizeof(myword) << " characters.\n"; //(5+1) counts null character also
 //If array size is given in declaration, sizeof() returns the size of the entire array regardless of what’s in it.
 cout << myword << " has " << strlen(myword) << " letters.\n"; //prints the number of characters before the null terminator
 
+char *t = "hello world";  //also a c-style array
 
 //Expressions (once myword has already been declared as above), such as below are NOT Valie:
 myword = "Bye";   //NOT VALID
