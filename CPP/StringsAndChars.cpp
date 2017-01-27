@@ -23,6 +23,12 @@ cout << myword << " has " << strlen(myword) << " letters.\n"; //prints the numbe
 
 const char *charptr = "hello world";  //also a c-style array (always use const, there's some reason)
 
+//You can freely interchange charptr and chararr
+int infixToPostfix(char* exp) {...}
+
+char exp[] = "a+b*(";
+infixToPostfix(exp);
+
 
 //Expressions (once myword has already been declared as above), such as below are NOT Valie:
 myword = "Bye";   //NOT VALID
