@@ -85,7 +85,7 @@ cout << ps ; //ps == animal[0]== animal. same as cout<<animal;
   strcpy(ps, animal); // copy string to new storage
   (int *) animal,  (int *) ps //now both will have different addresses
     
-/*  Note: why did we type cast into (int *) ?
+/*  Note: why did we type cast into (int *) ? (note that (void *) also works)
 Normally, if you give cout a pointer, it prints an address. But if the pointer is type char *,
 cout displays the pointed-to string. If you want to see the address of the string, you have to
 type cast the pointer to another pointer type, such as (int *)
