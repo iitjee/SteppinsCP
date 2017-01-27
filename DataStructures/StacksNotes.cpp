@@ -66,7 +66,48 @@ struct StackNode* createNewNode(int data)
 
 /* isEmpty  */ return !root;
 /*  isFull  */ //in LL rep, the stack can grow endlessly unlike in array rep.
-/*  push    */ 
+
+void push(struct StackNode** root, int data)
+{//note the use of double pointers(aka ptr-to-ptr)
+    struct StackNode* stackNode = newNode(data);
+    stackNode->next = *root;
+    *root = stackNode;
+    printf("%d pushed to stack\n", data);
+}
+ 
+int pop(struct StackNode** root)
+{
+    if (isEmpty(*root))
+        return INT_MIN;
+    struct StackNode* temp = *root;
+    *root = (*root)->next;
+    int popped = temp->data;
+    free(temp);
+ 
+    return popped;
+}
+ 
+int peek(struct StackNode* root)
+{
+    if (isEmpty(root))
+        return INT_MIN;
+    return root->data;
+}
+ 
+int main()
+{
+    struct StackNode* root = NULL;
+ 
+    push(&root, 10);
+    push(&root, 20);
+    push(&root, 30);
+ 
+    printf("%d popped from stack\n", pop(&root));
+ 
+    printf("Top element is %d\n", peek(root));
+ 
+    return 0;
+}
 
 
     
