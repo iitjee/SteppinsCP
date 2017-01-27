@@ -21,12 +21,16 @@ cout << myword << " has " << sizeof(myword) << " characters.\n"; //(5+1) counts 
 //If array size is given in declaration, sizeof() returns the size of the entire array regardless of what’s in it.
 cout << myword << " has " << strlen(myword) << " letters.\n"; //prints the number of characters before the null terminator
 
-char *t = "hello world";  //also a c-style array
+const char *charptr = "hello world";  //also a c-style array (always use const, there's some reason)
+
 
 //Expressions (once myword has already been declared as above), such as below are NOT Valie:
 myword = "Bye";   //NOT VALID
 myword[] = "Bye"; //NOT valid
 myword = { 'B', 'y', 'e', '\0' }; //NOT valid
+
+//unlike char arrays
+charptr = "Bye world";
 
 //This is because arrays cannot be assigned values. 
 //Note, though, that each of its elements can be assigned a value individually.
