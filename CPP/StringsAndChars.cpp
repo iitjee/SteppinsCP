@@ -143,5 +143,21 @@ i = atoi (buffer);
 printf ("The value entered is %d. Its double is %d.\n",i,i*2);  //73 and 146 ("bc" is ignored)
 
 
+/* char* vs char[]  */
+ // char* and char[] are different types, but it's not immediately apparent in all cases. 
+  //This is because arrays decay into pointers, meaning that if an expression of type char[] is provided where one of
+  //type char* is expected, the compiler automatically converts the array into a pointer to its first element.
+  
+  void printSomething(char *p)  //or it can be printSomething(char p[])
+{    printf("p: %s",p); }
+
+  //Your example function printSomething expects a pointer, so if you try to pass an array to it like this:
+  char s[10] = "hello";
+  printSomething(s);
+  The compiler pretends that you wrote this:
+
+  char s[10] = "hello";
+  printSomething(&s[0]);
+
 
 
