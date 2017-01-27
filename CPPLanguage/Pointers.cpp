@@ -71,7 +71,22 @@ sizeof(wages), sizeof(pw) //24, 4
 //IMP NOTE: both pw and wages refer to the same array. But applying the sizeof operator to them produces the above results.
 //This is one case in which C++ doesn’t interpret the array name as an address.
 
+  /* char* vs char[]  */
+ // char* and char[] are different types, but it's not immediately apparent in all cases. 
+  //This is because arrays decay into pointers, meaning that if an expression of type char[] is provided where one of
+  //type char* is expected, the compiler automatically converts the array into a pointer to its first element.
   
+  void printSomething(char *p)  //or it can be printSomething(char p[])
+{    printf("p: %s",p); }
+
+  //Your example function printSomething expects a pointer, so if you try to pass an array to it like this:
+  char s[10] = "hello";
+  printSomething(s);
+  The compiler pretends that you wrote this:
+
+  char s[10] = "hello";
+  printSomething(&s[0]);
+
 /*  New Operator (malloc() equivalen tin C */
   double * pn; // pn can point to a double value
   double * pa; // so can pa
