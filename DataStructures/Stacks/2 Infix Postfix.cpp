@@ -1,7 +1,13 @@
 
 
 Infix:    a+b
-Postfix:  ab+
+Postfix:  ab+ (aka Reverse Polish Notation)
+Prefix:   +ab
+
+Important Properties:
+       -> 2+3*4 or 234*+ the order of numbers is same in both
+       -> Postfix notations don't have parans
+       -> One stack is enough to convert infix to postfix. stack only contains operators and open parans '('
 
 Why postfix representation?
 compiler scans an expression either from left to right or from right to left.
@@ -12,6 +18,17 @@ The result is then added to d after another scan.
 The repeated scanning makes it very in-efficient. It is better to convert the expression to postfix(or prefix) form before evaluation.
 in postfix form it is: abc*d++ This can be evaluated easily using a stack. 
 
+       eg: (http://cs.nyu.edu/courses/Fall12/CSCI-GA.1133-002/notes/InfixToPostfixExamples.pdf)
+         Always start conversion with highest precedence operator (when you are manually doing, algorithm works slightly diff)
+              3+4*5/6       =>     3 4 5 * 6 / +
+         When parantheses is there, it forces to finish the enclosing operation first.
+              (300+23)*(43-21)/(84+7)     =>     300 23 + 43 21 - * 84 7 + /
+         
+              (4+8)*(6-5)/((3-2)*(2+2))   =>     4 8 + 6 5 - * 3 2 – 2 2 + * /
+              A + B * C + D              =>     A B C * + D +                      =>(prefix)  + + A * B C D	
+              (A + B) * (C + D)           =>     A B + C D + *                      =>(prefix)  * + A B + C D
+              A * B + C * D	              =>  A B * C D * +                        =>  + * A B * C D   
+              
 
 /*  Infix to Postfix conversion Algorithm 
 1. Scan the infix expression from left to right.
@@ -34,15 +51,12 @@ int Prec(char ch)
     switch (ch)
     {
     case '+':
-    case '-':
-        return 1;
+    case '-': return 1;
  
     case '*':
-    case '/':
-        return 2;
+    case '/': return 2;
  
-    case '^':
-        return 3;
+    case '^': return 3;
     }
     return -1;
 }
@@ -60,7 +74,7 @@ int infixToPostfix(char* exp)
     {
          // If the scanned character is an operand, add it to output.
         if (isOperand(exp[i]))
-            exp[++k] = exp[i];
+            exp[++k] = exp[i];     //note that the result is also made to store in 'exp' itself.
          
         // If the scanned character is an ‘(‘, push it to the stack.
         else if (exp[i] == '(')
@@ -88,7 +102,7 @@ int infixToPostfix(char* exp)
  
     // pop all the operators from the stack
     while (!isEmpty(stack))
-        exp[++k] = pop(stack );
+        exp[++k] = pop(stack);
  
     exp[++k] = '\0';
     printf( "%s\n", exp );
