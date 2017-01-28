@@ -7,6 +7,9 @@ Basic operations:
  - Dequeue:     Removing an item from the queue in FIFO. If the queue is empty, then it is said to be an Underflow condition.
  - Front(head): Get the front item from queue.
  - Rear(tail):  Get the last item from queue.
+ 
+ ENQUEUEING HAPPENS AT REAR OF QUEUE; DEQUEUEING HAPPENS AT FRONT OF QUEUE.
+(You should better understand this; https://www.youtube.com/watch?v=okr-XE8yTO8)
 
 "QUEUE IS USED WHEN THINGS DON’T HAVE TO BE PROCESSED IMMEDIATLY"
 eg: - BFS
@@ -17,7 +20,7 @@ eg: - BFS
 */
 
 
-/*  Array Implementation  */
+/* Circulrar Array Implementation  */
 //For implementing queue, we need to keep track of two indices, front and rear. 
 
 #include <stdio.h>
