@@ -109,6 +109,9 @@ int main()
     return 0;
 }
 
-
+//A good difference to note between array and linked list implementation is that when a new element is added
+//(In array implementation) we do at end of array.
+//(In linkedlist implement) we do at beggining of LL i.e at root node.
+//Nevertheless, regardless of implementation it always follow LIFO order :)
     
     
