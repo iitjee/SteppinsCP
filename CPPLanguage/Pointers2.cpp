@@ -37,8 +37,52 @@ thought(think()); // passes return value of think() to thought()
 // and a double return value. 
     estimate(50, pam); // function call telling estimate() to use pam()
 
+/* Using a Pointer to Invoke a Function */
+   double pam(int);
+   double (*pf)(int);
+   pf = pam; // pf now points to the pam() function
+   double x = pam(4); // call pam() using the function name
+   double y = (*pf)(5); // call pam() using the pointer pf
+// NOTE: Actually, C++ also allows you to use pf as if it were a function name:
+   double y = pf(5); // also call pam() using the pointer pf
+// Using the first form is uglier, but it provides a strong visual reminder that the code is using a function pointer.
+/* Holy syntax! How can pf and (*pf) be equivalent? One school of thought maintains that because
+pf is a pointer to a function, *pf is a function; hence, you should use (*pf)() as a function call. A
+second school maintains that because the name of a function is a pointer to that function, a pointer
+to that function should act like the name of a function; hence you should use pf() as a function
+call. */
 
+    #include <iostream>
+    double betsy(int);
+    double pam(int);
+    // second argument is pointer to a type double function that takes a type int argument
+    void estimate(int lines, double (*pf)(int));
 
+    int main()
+{
+    using namespace std;
+    int code;
+    cout << “How many lines of code do you need? “;
+    cin >> code;
+    cout << “Here’s Betsy’s estimate:\n”;
+    estimate(code, betsy);
+    cout << “Here’s Pam’s estimate:\n”;
+    estimate(code, pam);
+    return 0;
+}
+
+    double betsy(int lns)
+    {return 0.05 * lns;}
+
+    double pam(int lns)
+    {return 0.03 * lns + 0.0004 * lns * lns;}
+
+    void estimate(int lines, double (*pf)(int))
+{
+    using namespace std;
+    cout << lines << “ lines will take “;
+    cout << (*pf)(lines) << “ hour(s)\n”;
+}
 
 
 
