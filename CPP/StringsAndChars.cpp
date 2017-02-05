@@ -85,6 +85,10 @@ cout << mystring;          // printed as a library string
 cout << mystring.c_str();  // printed as a c-string 
 cout << mystring.data();   //same as c_str()
 
+/*  Loop in C-string: */
+  char s[100];
+  for (int i = 0; s[i]; ++i) { ... }
+//This is extremely useful (also avoids the strlen usage, that you could forget is O(n) and put on for condition).
 
 /*  Pointers and Character Array  */
 
