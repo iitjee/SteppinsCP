@@ -126,7 +126,7 @@ NULL NULL
          
          
  Types:
- 1. Full Binary Tree A Binary Tree is full if every node has 0 or 2 children
+ 1. Full Binary Tree A Binary Tree is full if every node has 0 or 2 children AND each leaf nodes are at the same level.
  (In a Full Binary, number of leaf nodes is number of internal nodes plus 1)
                             18                         
                          /       \  
@@ -142,6 +142,7 @@ NULL NULL
     /   \
    30   50
    
+   On the other hand, Strict Binary tree: Each node has exactly two child or zero child.
    
    2. Complete Binary Tree: A Binary Tree is complete Binary Tree if all levels are completely filled except possibly the last level and the last level has all keys as left as possible.
    (Eg: Binary Heap)
