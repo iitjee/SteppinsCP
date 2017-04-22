@@ -149,8 +149,8 @@ struct temp {
     cin>>(*ptr).i>>(*ptr).f;
 /* or */
     cin>> ptr->i >> ptr->f
-//Note:  Since pointer ptr is pointing to variable d in this program, (*ptr).inch and d.inch is exact same cell.
-//Similarly, (*ptr).feet and d.feet is exact same cell.
+//Note:  Since pointer ptr is pointing to variable sampleTemp in this program, (*ptr).inch and sampleTemp.inch is exact same cell.
+//Similarly, (*ptr).feet and sampleTemp.feet is exact same cell.
 
 /*  Using new to Create Dynamic Structures    */
 /*  You’ve seen how it can be advantageous to create arrays during runtime rather than at compile
