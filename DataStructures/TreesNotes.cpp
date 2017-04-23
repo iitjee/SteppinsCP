@@ -198,6 +198,9 @@ A binary tree is balanced if height of the tree is O(Log n) where n is number of
 */
 
 
+For Handshaking lemma and two important theorems:
+http://www.geeksforgeeks.org/handshaking-lemma-and-interesting-tree-properties/
+
 
 
 
