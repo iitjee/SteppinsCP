@@ -46,7 +46,23 @@ This is extremely useful!
 
 Infinite
     const int INF = 0x3f3f3f3f;
-This infinite constant is very useful too. I used to do something like x = 2e9; but I had to take care about not adding infinites (because of integer overflow) and stuff like this. This constant can be doubled without overflowing and also can be set very easily this way:
+
+This infinite constant is very useful too. I used to do something like x = 2e9; but I had to take care about not adding 
+infinites (because of integer overflow) and stuff like this. This constant can be doubled without overflowing and also can be 
+set very easily this way:
     int dist[1000];
     memset(dist, 63, sizeof(dist)); // 0x3f == 63
 For shortest path algorithms I always use this (I used to tend -1 version, but I had to do additional checks to verify if dist == -1 and if not..) and in CP BFS and SSSP are very common problems.
+
+
+
+
+
+to swap in-place
+		void swap(int *a, int *b)
+		{
+		    int temp = *a;
+		    *a = *b;
+		    *b = temp;
+		}
+//especially used when you want to swap two array elements in-place
