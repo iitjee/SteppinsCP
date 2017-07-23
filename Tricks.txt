@@ -66,3 +66,14 @@ to swap in-place
 		    *b = temp;
 		}
 //especially used when you want to swap two array elements in-place
+
+
+
+
+given an array of n-numbers, one number is missing. What's that?
+- one way is to find the sum of all n-numbers and given n-1 numbers, and then subtract. 
+(to avoid overflows you can subtract one number from first array with one number from second array)
+- other way is 
+	. first xor all the n numbers ->xor1
+	. next xor all the n-1 numbers ->xor2
+	. the missing numbers is xor of xor1 and xor2! ;)
