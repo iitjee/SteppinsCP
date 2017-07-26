@@ -1,13 +1,16 @@
 /*
 
-1. In a set, key = value and each value must be unique. (**i.e even if you put add same elements, the final result don't have any dupliactes and will be sorted :) )
+1. In a set, key = value and each value must be unique. (**i.e even if you add same elements, the final result don't have any 
+dupliactes and will be sorted :) )
 2. The value of the elements in a set cannot be modified once in the container (the elements are always const),
    but they can be inserted or removed from the container.
 3. By default, all elements are ordered lexicographically. (We can override the default behavior though! ;) )
 4. Internally uses BST
 
 
-PROBLEMS: https://www.codechef.com/problems/STONES/ https://discuss.codechef.com/questions/3616/stones-editorial
+PROBLEMS: 
+https://www.codechef.com/problems/STONES/ 
+https://discuss.codechef.com/questions/3616/stones-editorial
 */
 
 
@@ -32,7 +35,8 @@ set<int> first;
 //Note: actually we've to write std::set. It's assumed we've declared 'using namespace std;'
 
 
-//4 Overriding DEFAULT CONSTRUCTOR. eg: Here we are overriding the default comparator with that which sorts by the length rather than alphabet
+//4 Overriding DEFAULT CONSTRUCTOR. eg: Here we are overriding the default comparator with that which sorts by the length rather than 
+alphabet
   set<int, myCustomComparator> fifth; //myCustomComparator is basically a struct
   
   struct myCustomComparator { 
