@@ -77,3 +77,16 @@ given an array of n-numbers, one number is missing. What's that?
 	. first xor all the n numbers ->xor1
 	. next xor all the n-1 numbers ->xor2
 	. the missing numbers is xor of xor1 and xor2! ;)
+
+
+/*	reverse a string	*/
+void reverse(char *begin, char *end)
+{
+  char temp;
+  while (begin < end)
+  {
+    temp = *begin;
+    *begin++ = *end;
+    *end-- = temp;
+  }
+}
