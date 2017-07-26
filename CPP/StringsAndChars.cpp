@@ -9,8 +9,10 @@
 */
 
 string s;
-s.length(); /*or*/ s.size(); //to get length of string. strlen works only for c-style strings
+s.length(); /*or*/
+s.size(); //to get length of string. strlen works only for c-style strings
 
+s.begin(), s.end() are iterators to first and last elements of the string (pointers)
 
 
 
@@ -31,7 +33,7 @@ char exp[] = "a+b*(";
 infixToPostfix(exp);
 
 
-//Expressions (once myword has already been declared as above), such as below are NOT Valie:
+//Expressions (once myword has already been declared as above), such as below are NOT Valid:
 myword = "Bye";   //NOT VALID
 myword[] = "Bye"; //NOT valid
 myword = { 'B', 'y', 'e', '\0' }; //NOT valid
