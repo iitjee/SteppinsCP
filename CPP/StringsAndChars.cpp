@@ -1,5 +1,6 @@
 /*
-  Unless you have a specific, compelling reason to use C-style strings, use string (defined in the <string> header) instead. std::string is easier, safer, and more flexible.
+  Unless you have a specific, compelling reason to use C-style strings, use string (defined in the <string> header) instead. std::string 
+  is easier, safer, and more flexible.
   
   no need of importing <string> to use strings
   to use functions like strcpy() etc. on c-style arrays, you need to import <cstring>
@@ -40,7 +41,8 @@ charptr = "Bye world";
 
 /*  The difference between charptr and chararr  */
 char *s = "Hello world";
-//will place "Hello world" in the read-only parts of the memory, and making s a pointer to that makes any writing operation on this memory illegal.
+//will place "Hello world" in the read-only parts of the memory, and making s a pointer to that makes any writing operation on this 
+memory illegal.
 //While doing:
 char s[] = "Hello world";
 //puts the literal string in read-only memory and copies the string to newly allocated memory on the stack. Thus making
@@ -75,7 +77,8 @@ cout << animal; //animal == animal[0] == address of first character.
   cout << " from " << answer2 << "!\n";
 
 //Note that char arrays are of fixed size specified implicitly or explicitly
-//However, strings have a dynamic size determined during runtime, while the size of arrays is determined on compilation, before the program runs.
+//However, strings have a dynamic size determined during runtime, while the size of arrays is determined on compilation, before the 
+program runs.
 
 
 /*  In any case, null-terminated character sequences and strings are easily transformed from one another: */
