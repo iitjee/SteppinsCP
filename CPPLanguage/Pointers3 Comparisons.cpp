@@ -26,7 +26,7 @@ If two pointers point to non-static data members of the same object with differe
 
 If two pointers point to non-static data members of the same union object, they compare equal (after conversion to void*, if necessary). 
 
-If two pointers point to elements of the same array or one beyond the end of the array, the pointer to the object with the higher 
+IMP: If two pointers point to elements of the same array or one beyond the end of the array, the pointer to the object with the higher 
 subscript compares higher.
 
 Other pointer comparisons are unspecified.
