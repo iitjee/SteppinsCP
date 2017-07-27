@@ -70,6 +70,22 @@ to swap in-place
 //http://www.geeksforgeeks.org/passing-by-pointer-vs-passing-by-reference-in-c/
 
 
+two swap two characters in string
+		void swap(char *x, char *y)
+		{
+		    char temp = *x;
+		    *x = *y;
+		    *y = temp;
+		}
+//or (below is my original attempt to swap. here swap is between index i element and 0th element.)
+		string swap(string inp, int i) 
+		{
+		    char temp = inp[0];
+		    inp[0] = inp[i];
+		    inp[i] = temp;
+		    return inp;
+		}
+
 
 given an array of n-numbers, one number is missing. What's that?
 - one way is to find the sum of all n-numbers and given n-1 numbers, and then subtract. 
